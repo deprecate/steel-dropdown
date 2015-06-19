@@ -10,6 +10,7 @@ describe('Dropdown', function() {
 		assert.ok(!dom.hasClass(component.element, 'open'));
 		component.open();
 		assert.ok(dom.hasClass(component.element, 'open'));
+		component.dispose();
 	});
 
 	it('should close dropdown', function() {
@@ -17,6 +18,7 @@ describe('Dropdown', function() {
 		assert.ok(!dom.hasClass(component.element, 'open'));
 		component.close();
 		assert.ok(!dom.hasClass(component.element, 'open'));
+		component.dispose();
 	});
 
 	it('should toggle dropdown', function() {
@@ -26,6 +28,7 @@ describe('Dropdown', function() {
 		assert.ok(dom.hasClass(component.element, 'open'));
 		component.toggle();
 		assert.ok(!dom.hasClass(component.element, 'open'));
+		component.dispose();
 	});
 
 	it('should change dropdown position', function(done) {
@@ -42,23 +45,24 @@ describe('Dropdown', function() {
 			async.nextTick(function() {
 				assert.ok(dom.hasClass(component.element, 'dropdown'));
 				assert.ok(!dom.hasClass(component.element, 'dropinvalid'));
+				component.dispose();
 				done();
 			});
 		});
 	});
 
-	it('should hide element when click outside', function(done) {
-		var component = new Dropdown({
-			visible: true
-		}).render();
+	it('should close dropdown when click outside', function(done) {
+		var component = new Dropdown().render();
+		component.open();
 
-		assert.ok(component.visible);
+		assert.ok(component.isOpen());
 		dom.triggerEvent(component.element.firstChild, 'click');
 		async.nextTick(function() {
-			assert.ok(component.visible);
+			assert.ok(component.isOpen());
 			dom.triggerEvent(document, 'click');
 			async.nextTick(function() {
-				assert.ok(!component.visible);
+				assert.ok(!component.isOpen());
+				component.dispose();
 				done();
 			});
 		});
@@ -78,5 +82,7 @@ describe('Dropdown', function() {
 		var component = new Dropdown(config).decorate();
 
 		assert.strictEqual(component.element.outerHTML, markupFromDom);
+
+		component.dispose();
 	});
 });

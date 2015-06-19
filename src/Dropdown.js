@@ -13,11 +13,21 @@ class Dropdown extends SoyComponent {
 	}
 
 	attached() {
+		super.attached();
 		this.eventHandler_.add(dom.on(document, 'click', this.handleDocClick_.bind(this)));
+	}
+
+	detached() {
+		super.detached();
+		this.eventHandler_.removeAllListeners();
 	}
 
 	close() {
 		dom.removeClasses(this.element, 'open');
+	}
+
+	isOpen() {
+		return dom.hasClass(this.element, 'open');
 	}
 
 	/**
@@ -28,7 +38,7 @@ class Dropdown extends SoyComponent {
 		if (this.element.contains(event.target)) {
 			return;
 		}
-		this.visible = false;
+		this.close();
 	}
 
 	open() {
