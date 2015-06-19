@@ -19,15 +19,17 @@
 	<h1>Dropdown</h1>
 	<script type="text/javascript">
 		new steel.Dropdown({
-			header: steel.SoyComponent.sanitizeHtml('<button data-onclick="toggle">Dropdown</button>'),
-			body: 'Body'
+			header: steel.SoyComponent.sanitizeHtml('<button data-onclick="toggle" class="btn btn-default">Dropdown <span class="caret"></span></button>'),
+			body: steel.SoyComponent.sanitizeHtml('<li><a href="#">Action</a></li><li><a href="#">Another action</a></li><li><a href="#">Something else here</a></li><li><a href="#">Separated link</a></li>')
 		}).render();
 
 		new steel.Dropdown({
 			position: 'up',
-			header: steel.SoyComponent.sanitizeHtml('<button data-onclick="toggle">Dropup</button>'),
-			body: 'Body'
+			header: steel.SoyComponent.sanitizeHtml('<button data-onclick="toggle" class="btn btn-default">Dropup <span class="caret"></span></button>'),
+			body: steel.SoyComponent.sanitizeHtml('<li><a href="#">Action</a></li><li><a href="#">Another action</a></li><li><a href="#">Something else here</a></li><li><a href="#">Separated link</a></li>')
 		}).render();
 	</script>
 </body>
 </html>
+
+
