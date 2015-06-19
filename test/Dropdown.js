@@ -47,6 +47,23 @@ describe('Dropdown', function() {
 		});
 	});
 
+	it('should hide element when click outside', function(done) {
+		var component = new Dropdown({
+			visible: true
+		}).render();
+
+		assert.ok(component.visible);
+		dom.triggerEvent(component.element.firstChild, 'click');
+		async.nextTick(function() {
+			assert.ok(component.visible);
+			dom.triggerEvent(document, 'click');
+			async.nextTick(function() {
+				assert.ok(!component.visible);
+				done();
+			});
+		});
+	});
+
 	it('should decorate', function() {
 		var config = {
 			element: '#dropdown',
