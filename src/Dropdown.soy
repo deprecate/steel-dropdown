@@ -1,0 +1,35 @@
+{namespace Templates.Dropdown}
+
+/**
+ */
+{template .content}
+	{delcall Dropdown.header data="all" /}
+	{delcall Dropdown.body data="all" /}
+{/template}
+
+/**
+ * @param header
+ */
+{template .header}
+	{if $header}
+		{$header}
+	{/if}
+{/template}
+
+/**
+ * @param body
+ */
+{template .body}
+	{if $body}
+		{$body}
+	{/if}
+{/template}
+
+/**
+ * @param? elementContent
+ * @param id
+ * @param? surfaceId
+ */
+{deltemplate Dropdown.body variant="'element'"}
+	<div id="{$id}-body" class="dropdown-menu">{$elementContent}</div>
+{/deltemplate}

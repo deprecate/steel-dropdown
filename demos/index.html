@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo: Dropdown</title>
+
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="../build/dropdown.css">
+
+	<script src="../bower_components/soyutils/soyutils.js"></script>
+	<script src="../build/globals/dropdown.js"></script>
+	<style>
+	.dropup {
+		margin-top: 100px;
+	}
+	</style>
+</head>
+<body>
+	<h1>Dropdown</h1>
+	<script type="text/javascript">
+		new steel.Dropdown({
+			header: steel.SoyComponent.sanitizeHtml('<button data-onclick="toggle">Dropdown</button>'),
+			body: 'Body'
+		}).render();
+
+		new steel.Dropdown({
+			position: 'up',
+			header: steel.SoyComponent.sanitizeHtml('<button data-onclick="toggle">Dropup</button>'),
+			body: 'Body'
+		}).render();
+	</script>
+</body>
+</html>
