@@ -1,2 +1,32 @@
-.dropdown {
+@import "steel-bootstrap/src/variables";
+@import "steel-bootstrap/src/mixins";
+
+/* Dropdown
+	 ========================================================================== */
+
+.dropdown-menu {
+	background: $white;
+	border-radius: $border-radius-base;
+	border: 1px solid rgba($secondary, 0.12);
+	box-shadow: $shadow-large;
+	text-align: center;
+}
+
+.dropdown-menu > li:first-child {
+	margin-top: 6px;
+}
+
+.dropdown-menu > li:last-child {
+	margin-bottom: 6px;
+}
+
+.dropdown-menu > li > a {
+	@include anim(background);
+	color: rgba($secondary, .7);
+	padding: 4px 24px;
+}
+
+.dropdown-menu > li > a:hover {
+	background: rgba($primary, .05);
+	color: rgba($secondary, .7);
 }
