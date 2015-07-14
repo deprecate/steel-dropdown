@@ -2,6 +2,7 @@
 
 import async from 'bower:metal/src/async/async';
 import dom from 'bower:metal/src/dom/dom';
+import ComponentRegistry from 'bower:metal/src/component/ComponentRegistry';
 import Dropdown from '../src/Dropdown';
 
 describe('Dropdown', function() {
@@ -76,7 +77,7 @@ describe('Dropdown', function() {
 			header: 'header'
 		};
 
-		var markup = soy.$$getDelegateFn('Dropdown')(config);
+		var markup = ComponentRegistry.Templates.Dropdown.content(config);
 		dom.append(document.body, markup.content);
 		var markupFromDom = document.getElementById('dropdown').outerHTML;
 		var component = new Dropdown(config).decorate();

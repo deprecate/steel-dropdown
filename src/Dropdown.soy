@@ -1,35 +1,36 @@
 {namespace Templates.Dropdown}
 
 /**
+ * @param elementClasses
+ * @param id
  */
 {template .content}
-	{delcall Dropdown.header data="all" /}
-	{delcall Dropdown.body data="all" /}
+	<div id="{$id}" class="dropdown component {$elementClasses}">
+		{call .header data="all" /}
+		{call .body data="all" /}
+	</div>
 {/template}
 
 /**
  * @param header
+ * @param id
  */
 {template .header}
-	{if $header}
-		{$header}
-	{/if}
+	<div id="{$id}">
+		{if $header}
+			{$header}
+		{/if}
+	</div>
 {/template}
 
 /**
  * @param body
+ * @param id
  */
 {template .body}
-	{if $body}
-		{$body}
-	{/if}
+	<ul id="{$id}-body" class="dropdown-menu">
+		{if $body}
+			{$body}
+		{/if}
+	</ul>
 {/template}
-
-/**
- * @param? elementContent
- * @param id
- * @param? surfaceId
- */
-{deltemplate Dropdown.body variant="'element'"}
-	<ul id="{$id}-body" class="dropdown-menu">{$elementContent}</ul>
-{/deltemplate}
