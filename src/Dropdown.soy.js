@@ -34,7 +34,7 @@ if (goog.DEBUG) {
  * @suppress {checkTypes}
  */
 Templates.Dropdown.header = function(opt_data, opt_ignored, opt_ijData) {
-  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '">' + ((opt_data.header) ? soy.$$escapeHtml(opt_data.header) : '') + '</div>');
+  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '-header">' + ((opt_data.header) ? soy.$$escapeHtml(opt_data.header) : '') + '</div>');
 };
 if (goog.DEBUG) {
   Templates.Dropdown.header.soyTemplateName = 'Templates.Dropdown.header';
