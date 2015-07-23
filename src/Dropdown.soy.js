@@ -19,7 +19,7 @@ if (typeof Templates.Dropdown == 'undefined') { Templates.Dropdown = {}; }
  * @suppress {checkTypes}
  */
 Templates.Dropdown.content = function(opt_data, opt_ignored, opt_ijData) {
-  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '" class="dropdown component ' + soy.$$escapeHtmlAttribute(opt_data.elementClasses) + '">' + Templates.Dropdown.header(opt_data, null, opt_ijData) + Templates.Dropdown.body(opt_data, null, opt_ijData) + '</div>');
+  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '" class="dropdown component' + soy.$$escapeHtmlAttribute(opt_data.elementClasses ? ' ' + opt_data.elementClasses : '') + '">' + Templates.Dropdown.header(opt_data, null, opt_ijData) + Templates.Dropdown.body(opt_data, null, opt_ijData) + '</div>');
 };
 if (goog.DEBUG) {
   Templates.Dropdown.content.soyTemplateName = 'Templates.Dropdown.content';
@@ -55,7 +55,7 @@ if (goog.DEBUG) {
   Templates.Dropdown.body.soyTemplateName = 'Templates.Dropdown.body';
 }
 
-Templates.Dropdown.content.params = ["elementClasses","id"];
+Templates.Dropdown.content.params = ["id"];
 Templates.Dropdown.header.params = ["header","id"];
 Templates.Dropdown.body.params = ["body","id"];
 export default Templates.Dropdown;
