@@ -2,24 +2,15 @@
 
 /**
  * @param? elementClasses
+ * @param header
  * @param id
  */
 {template .content}
 	<div id="{$id}" class="dropdown component{$elementClasses ? ' ' + $elementClasses : ''}">
-		{call .header data="all" /}
-		{call .body data="all" /}
-	</div>
-{/template}
-
-/**
- * @param header
- * @param id
- */
-{template .header}
-	<div id="{$id}-header">
 		{if $header}
 			{$header}
 		{/if}
+		{call .body data="all" /}
 	</div>
 {/template}
 
